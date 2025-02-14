@@ -276,6 +276,17 @@ ec02fcd6-0986-4792-8b15-01e43105eae4 | minio03         | http://minio03:9000    
 > [!NOTE]
 > If the node that needs to be removed crashes or cannot connect. The removal process when executing the "mc admin replicate remove" command will take longer (because it can't connect to the node that needs to be removed to clear the Replicate Policy). Please wait until the statement is complete.
 
+```
+Syntax: 
+   mc admin replicate rm ALIAS PEER_TO_REMOVE --force
+
+- Replace ALIAS with the alias of any peer site in the replication configuration.
+- Replace PEER_TO_REMOVE with the alias of the peer site to remove.
+- All healthy peers in the site replication configuration update to remove the specified peer automatically.
+- MinIO requires the --force flag to remove the peer from the site replication configuration.
+```
+
+
 **Execution in a different node than the node to be removed (example remove node minio02):**
 ```
 root@minio01:~/minio-deploy# docker ps
@@ -313,3 +324,21 @@ ec02fcd6-0986-4792-8b15-01e43105eae4 | minio03         | http://minio03:9000    
 **Test replicate (after remove node minio02):**
 
 ![Alt Text](remove-node.png)
+
+
+## (Optinal) Some related documents and commands
+- **Document:**
+```
+https://min.io/docs/minio/linux/operations/install-deploy-manage/multi-site-replication.html
+https://min.io/docs/minio/linux/reference/minio-mc-admin/mc-admin-replicate.html#mc.admin.replicate.update.-mode
+https://min.io/docs/minio/linux/reference/minio-mc-admin/mc-admin-trace.html
+```
+
+- **Commands:**
+```
+# mc admin trace --call storage <ALIAS>
+
+# mc admin replicate status <ALIAS> --all
+
+# mc admin replicate status <ALIAS> --bucket <BUCKET NAME>
+```
