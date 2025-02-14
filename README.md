@@ -134,6 +134,7 @@ mc: Initialized share uploads `/tmp/.mc/share/uploads.json` file.
 mc: Initialized share downloads `/tmp/.mc/share/downloads.json` file.
 Requested sites were configured for replication successfully.
 ```
+**Site replication configuration verify**
 ```
 bash-5.1# mc admin replicate info  minio01
 SiteReplication enabled for:
@@ -152,6 +153,7 @@ Deployment ID                        | Site Name       | Endpoint               
 4bc1ff09-2783-4f04-9f07-3f27ed43f66f | minio01         | http://minio01:9000                            |      | N/A        | false                    
 8a3cade1-8ada-4bdd-a7a3-c1c082e568c3 | minio02         | http://minio02:9000                            |      | N/A        | false                    
 ```
+**Check replicate status in node minio01**
 ```
 bash-5.1# mc admin replicate status minio01
 Bucket replication status:
@@ -176,6 +178,7 @@ Replicated:    0 objects (0 B)
 Queued:        ● 0 objects, (0 B) (avg: 0 objects, 0 B; max: 0 objects, 0 B)
 Received:      0 objects (0 B)
 ```
+**Check replicate status in node minio02**
 ```
 bash-5.1# mc admin replicate status minio02
 Bucket replication status:
