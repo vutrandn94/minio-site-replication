@@ -1,2 +1,2 @@
 # minio-site-replication
-Site Replication
+Deploy MinIO: Site Replication
