@@ -203,3 +203,9 @@ Replicated:    0 objects (0 B)
 Queued:        ● 0 objects, (0 B) (avg: 0 objects, 0 B; max: 0 objects, 0 B)
 Received:      0 objects (0 B)
 ```
+
+**Test replicate**
+- Create bucket in node minio01/minio02 and check the remaining node
+![Alt Text](bucket-replicate-1.png)
+![Alt Text](bucket-replicate-2.png)
+
