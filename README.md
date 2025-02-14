@@ -205,7 +205,7 @@ Received:      0 objects (0 B)
 ```
 
 **Test replicate**
-- Create bucket in node minio01/minio02 and check the remaining node
+- **Create bucket in node minio01/minio02 and check the remaining node**
 ![Alt Text](bucket-replicate-1.png)
 ![Alt Text](bucket-replicate-2.png)
 
