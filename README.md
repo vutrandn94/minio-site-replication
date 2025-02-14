@@ -122,9 +122,11 @@ networks:
 root@minio01:~/minio-deploy# docker ps
 CONTAINER ID   IMAGE                                              COMMAND                  CREATED              STATUS                        PORTS                              NAMES
 b47c3db88b69   quay.io/minio/minio:RELEASE.2025-01-20T14-49-07Z   "/usr/bin/docker-ent…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:9000-9001->9000-9001/tcp   minio-deploy-minio01-1
-
+```
+```
 root@minio01:~/minio-deploy# docker exec -it minio-deploy-minio01-1 bash
-
+```
+```
 bash-5.1# mc admin replicate add minio01 minio02
 mc: Configuration written to `/tmp/.mc/config.json`. Please update your access credentials.
 mc: Successfully created `/tmp/.mc/share`.
