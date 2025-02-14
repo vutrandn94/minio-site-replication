@@ -220,7 +220,7 @@ Received:      0 objects (0 B)
 
 ## (Optinal) Add site replication to expand (add node minio03)
 > [!NOTE]
-> Node need to add more to expand replicate size, there must be no data (Empty data)
+> Node need to add more to expand replicate size, there must be no data (Empty data). The data will automatically sync to the new node according to the default mode "asynchronous" (MinIO strongly recommends). Can change mode with "mc admin replicate update --mode" (https://min.io/docs/minio/linux/reference/minio-mc-admin/mc-admin-replicate.html#mc.admin.replicate.update.-mode)
 
 **Execute on minio01/minio02:**
 ```
