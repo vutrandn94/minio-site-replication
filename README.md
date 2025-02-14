@@ -22,7 +22,7 @@ Deploy MinIO: Site Replication
 **Default minio admin user & password (Change if necessary)**
 | Default Root User | Default Root Password |
 | :--- | :--- |
-| root | Enjoyd@y |
+| root | Enjoyday |
 
 **Default container Timezone (Modify to appropriate timezone)**
 | Default container Timezone |
@@ -45,4 +45,69 @@ Deploy MinIO: Site Replication
 172.31.47.91 minio01 
 172.31.37.11 minio02 
 172.31.36.54 minio03
+```
+
+## Add site replication (2 node minio01 - minio02)
+**docker-compose.yml in minio01 (Config in node "minio01")**
+```
+services:
+  minio01:
+    image: 'quay.io/minio/minio:RELEASE.2025-01-20T14-49-07Z'
+    restart: always
+    environment:
+      MINIO_ROOT_USER: "root"
+      MINIO_ROOT_PASSWORD: "Enjoyday"
+      TZ: "Asia/Ho_Chi_Minh"
+      MC_HOST_minio01: "http://root:Enjoyday@minio01:9000"
+      MC_HOST_minio02: "http://root:Enjoyday@minio02:9000"
+      MC_HOST_minio03: "http://root:Enjoyday@minio03:9000"
+    command: server /data --console-address ":9001"
+    ports:
+      - 9000:9000
+      - 9001:9001
+    volumes:
+      - /mnt/data:/data
+    networks:
+      - minio-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 1m
+networks:
+  minio-net:
+    driver: bridge
+```
+
+**docker-compose.yml in minio02 (Config in node "minio02")**
+```
+services:
+  minio02:
+    image: 'quay.io/minio/minio:RELEASE.2025-01-20T14-49-07Z'
+    restart: always
+    environment:
+      MINIO_ROOT_USER: "root"
+      MINIO_ROOT_PASSWORD: "Enjoyday"
+      TZ: "Asia/Ho_Chi_Minh"
+      MC_HOST_minio01: "http://root:Enjoyday@minio01:9000"
+      MC_HOST_minio02: "http://root:Enjoyday@minio02:9000"
+      MC_HOST_minio03: "http://root:Enjoyday@minio03:9000"
+    command: server /data --console-address ":9001"
+    ports:
+      - 9000:9000
+      - 9001:9001
+    volumes:
+      - /mnt/data:/data
+    networks:
+      - minio-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 1m
+networks:
+  minio-net:
+    driver: bridge
 ```
