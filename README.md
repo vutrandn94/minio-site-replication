@@ -217,3 +217,18 @@ Received:      0 objects (0 B)
 
 ![Alt Text](metric.png)
 
+
+## (Optinal) Add site replication to expand (add node minio03)
+**Execute on minio01 or minio02**
+```
+root@minio01:~/minio-deploy# docker ps
+CONTAINER ID   IMAGE                                              COMMAND                  CREATED          STATUS                    PORTS                              NAMES
+b47c3db88b69   quay.io/minio/minio:RELEASE.2025-01-20T14-49-07Z   "/usr/bin/docker-ent…"   33 minutes ago   Up 32 minutes (healthy)   0.0.0.0:9000-9001->9000-9001/tcp   minio-deploy-minio01-1
+```
+```
+root@minio01:~/minio-deploy# docker exec -it minio-deploy-minio01-1 bash
+```
+```
+bash-5.1# mc admin replicate add minio01 minio02 minio03
+Requested sites were configured for replication successfully.
+```
