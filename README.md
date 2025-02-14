@@ -286,3 +286,23 @@ root@minio01:~/minio-deploy# docker exec -it minio-deploy-minio01-1 bash
 bash-5.1# mc admin replicate remove minio01 minio02 --force
 Following site(s) [minio02] were removed successfully
 ```
+
+**Site replication configuration verify:**
+```
+bash-5.1# mc admin replicate info  minio01
+SiteReplication enabled for:
+
+Deployment ID                        | Site Name       | Endpoint                                       | Sync | Bandwidth  | ILM Expiry Replication   
+                                     |                 |                                                |      | Per Bucket |                          
+4bc1ff09-2783-4f04-9f07-3f27ed43f66f | minio01         | http://minio01:9000                            |      | N/A        | false                    
+ec02fcd6-0986-4792-8b15-01e43105eae4 | minio03         | http://minio03:9000                            |      | N/A        | false                    
+```
+```
+bash-5.1# mc admin replicate info  minio03
+SiteReplication enabled for:
+
+Deployment ID                        | Site Name       | Endpoint                                       | Sync | Bandwidth  | ILM Expiry Replication   
+                                     |                 |                                                |      | Per Bucket |                          
+4bc1ff09-2783-4f04-9f07-3f27ed43f66f | minio01         | http://minio01:9000                            |      | N/A        | false                    
+ec02fcd6-0986-4792-8b15-01e43105eae4 | minio03         | http://minio03:9000                            |      | N/A        | false                    
+```
