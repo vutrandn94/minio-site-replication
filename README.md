@@ -273,7 +273,7 @@ ec02fcd6-0986-4792-8b15-01e43105eae4 | minio03         | http://minio03:9000    
 
 
 ## (Optinal) Remove a Site from Replication
-[!NOTE]
+> [!NOTE]
 > If the node that needs to be removed crashes or cannot connect. The removal process when executing the "mc admin replicate remove" command will take longer (because it can't connect to the node that needs to be removed to clear the Replicate Policy). Please wait until the statement is complete.
 
 **Execution in a different node than the node to be removed (example remove node minio02):**
