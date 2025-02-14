@@ -270,3 +270,19 @@ ec02fcd6-0986-4792-8b15-01e43105eae4 | minio03         | http://minio03:9000    
 **Test replicate:**
 
 ![Alt Text](expand.png)
+
+
+## (Optinal) Remove a Site from Replication
+**Execution in a different node than the node to be removed (example remove node minio02):**
+```
+root@minio01:~/minio-deploy# docker ps
+CONTAINER ID   IMAGE                                              COMMAND                  CREATED          STATUS                    PORTS                              NAMES
+b47c3db88b69   quay.io/minio/minio:RELEASE.2025-01-20T14-49-07Z   "/usr/bin/docker-ent…"   55 minutes ago   Up 55 minutes (healthy)   0.0.0.0:9000-9001->9000-9001/tcp   minio-deploy-minio01-1
+```
+```
+root@minio01:~/minio-deploy# docker exec -it minio-deploy-minio01-1 bash
+```
+```
+bash-5.1# mc admin replicate remove minio01 minio02 --force
+Following site(s) [minio02] were removed successfully
+```
