@@ -341,4 +341,6 @@ https://min.io/docs/minio/linux/reference/minio-mc-admin/mc-admin-trace.html
 # mc admin replicate status <ALIAS> --all
 
 # mc admin replicate status <ALIAS> --bucket <BUCKET NAME>
+
+# mc admin replicate resync <ALIAS_SYNC_NODE> <ALIAST_NODE_RECEIVE_DATA> 
 ```
