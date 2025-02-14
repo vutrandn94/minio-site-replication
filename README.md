@@ -206,6 +206,14 @@ Received:      0 objects (0 B)
 
 **Test replicate**
 - **Create bucket in node minio01/minio02 and check the remaining node**
+
 ![Alt Text](bucket-replicate-1.png)
+
 ![Alt Text](bucket-replicate-2.png)
+
+- **Upload item object in node minio01/minio02 and verify object metadata in remaining node**
+
+![Alt Text](object-replicate-1.png)
+
+![Alt Text](metric.png)
 
