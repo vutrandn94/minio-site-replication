@@ -134,4 +134,69 @@ mc: Initialized share uploads `/tmp/.mc/share/uploads.json` file.
 mc: Initialized share downloads `/tmp/.mc/share/downloads.json` file.
 Requested sites were configured for replication successfully.
 ```
+```
+bash-5.1# mc admin replicate info  minio01
+SiteReplication enabled for:
 
+Deployment ID                        | Site Name       | Endpoint                                       | Sync | Bandwidth  | ILM Expiry Replication   
+                                     |                 |                                                |      | Per Bucket |                          
+4bc1ff09-2783-4f04-9f07-3f27ed43f66f | minio01         | http://minio01:9000                            |      | N/A        | false                    
+8a3cade1-8ada-4bdd-a7a3-c1c082e568c3 | minio02         | http://minio02:9000                            |      | N/A        | false                    
+```
+```
+bash-5.1# mc admin replicate info  minio02
+SiteReplication enabled for:
+
+Deployment ID                        | Site Name       | Endpoint                                       | Sync | Bandwidth  | ILM Expiry Replication   
+                                     |                 |                                                |      | Per Bucket |                          
+4bc1ff09-2783-4f04-9f07-3f27ed43f66f | minio01         | http://minio01:9000                            |      | N/A        | false                    
+8a3cade1-8ada-4bdd-a7a3-c1c082e568c3 | minio02         | http://minio02:9000                            |      | N/A        | false                    
+```
+```
+bash-5.1# mc admin replicate status minio01
+Bucket replication status:
+No Buckets present
+
+Policy replication status:
+●  5/5 Policies in sync
+
+User replication status:
+No Users present
+
+Group replication status:
+No Groups present
+
+ILM Expiry Rules replication status:
+No ILM Expiry Rules present
+
+Object replication status:
+Replication status since 8 minutes 
+Summary:
+Replicated:    0 objects (0 B)
+Queued:        ● 0 objects, (0 B) (avg: 0 objects, 0 B; max: 0 objects, 0 B)
+Received:      0 objects (0 B)
+```
+```
+bash-5.1# mc admin replicate status minio02
+Bucket replication status:
+No Buckets present
+
+Policy replication status:
+●  5/5 Policies in sync
+
+User replication status:
+No Users present
+
+Group replication status:
+No Groups present
+
+ILM Expiry Rules replication status:
+No ILM Expiry Rules present
+
+Object replication status:
+Replication status since 8 minutes 
+Summary:
+Replicated:    0 objects (0 B)
+Queued:        ● 0 objects, (0 B) (avg: 0 objects, 0 B; max: 0 objects, 0 B)
+Received:      0 objects (0 B)
+```
