@@ -221,6 +221,7 @@ Received:      0 objects (0 B)
 ## (Optinal) Add site replication to expand (add node minio03)
 > [!NOTE]
 > Node need to add more to expand replicate size, there must be no data (Empty data)
+
 **Execute on minio01 or minio02**
 ```
 root@minio01:~/minio-deploy# docker ps
@@ -265,3 +266,7 @@ Deployment ID                        | Site Name       | Endpoint               
 8a3cade1-8ada-4bdd-a7a3-c1c082e568c3 | minio02         | http://minio02:9000                            |      | N/A        | false                    
 ec02fcd6-0986-4792-8b15-01e43105eae4 | minio03         | http://minio03:9000                            |      | N/A        | false             
 ``` 
+
+**Test replicate**
+
+![Alt Text](expand.png)
