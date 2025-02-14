@@ -38,3 +38,11 @@ Deploy MinIO: Site Replication
 | Default MinIO docker image |
 | :--- |
 | quay.io/minio/minio:RELEASE.2025-01-20T14-49-07Z |
+
+**Setting hosts file (Set on all nodes)**
+```
+## MINIO
+172.31.47.91 minio01 
+172.31.37.11 minio02 
+172.31.36.54 minio03
+```
