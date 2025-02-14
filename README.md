@@ -219,6 +219,8 @@ Received:      0 objects (0 B)
 
 
 ## (Optinal) Add site replication to expand (add node minio03)
+> [!NOTE]
+> Node need to add more to expand replicate size, there must be no data (Empty data)
 **Execute on minio01 or minio02**
 ```
 root@minio01:~/minio-deploy# docker ps
